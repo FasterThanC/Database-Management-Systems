@@ -2,8 +2,8 @@ import java.sql.SQLException;
 
 public class dataBaseMain {
     private static String url = "jdbc:postgresql://pgsql3.mif/studentu";
-    private static String username = "vace8105";
-    private static String password = "Kufcur4893";
+    private static String username = "my_username";
+    private static String password = "my_password";
     
     public static void main(String[] args) {  
         dataBaseClient db = new dataBaseClient(url, username, password);

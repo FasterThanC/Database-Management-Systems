@@ -8,12 +8,12 @@ public class dataBaseClient
 	private PreparedStatement stmt_selectProjektasByCategory;
 	private PreparedStatement stmt_insertProjektas;
 	private PreparedStatement stmt_insertProjektasWithoutValanduSkaicius;
-   private PreparedStatement stmt_deleteProjektas;
-   private PreparedStatement stmt_updateProjektas;
-   private PreparedStatement stmt_updateProjektasWithoutValanduSkaicius;
-   private PreparedStatement stmt_insertVadovas;
-   private PreparedStatement stmt_insertVadovaujami_projektai;
-   private PreparedStatement stmt_updateVadovaujami_projektai;
+   	private PreparedStatement stmt_deleteProjektas;
+   	private PreparedStatement stmt_updateProjektas;
+   	private PreparedStatement stmt_updateProjektasWithoutValanduSkaicius;
+   	private PreparedStatement stmt_insertVadovas;
+   	private PreparedStatement stmt_insertVadovaujami_projektai;
+   	private PreparedStatement stmt_updateVadovaujami_projektai;
 	
 	public dataBaseClient(String url, String user, String pass) {
         try 
@@ -68,7 +68,7 @@ public class dataBaseClient
     {
     	try
     	{
-    		this.stmt_selectProjektasByCategory = this.con.prepareStatement("SELECT ID as \"ID\", Pavadinimas as \"Pavadinimas\", Kategorija as \"Kategorija\", Prioritetine_Svarba as \"Prioritetine_Svarba\", Valandu_skaicius as \"Valandu_skaicius\" FROM Projektai WHERE kategorija = ?");
+    	 this.stmt_selectProjektasByCategory = this.con.prepareStatement("SELECT ID as \"ID\", Pavadinimas as \"Pavadinimas\", Kategorija as \"Kategorija\", Prioritetine_Svarba as \"Prioritetine_Svarba\", Valandu_skaicius as \"Valandu_skaicius\" FROM Projektai WHERE kategorija = ?");
          this.stmt_selectProjektas = this.con.prepareStatement("SELECT ID as \"ID\", Pavadinimas as \"Pavadinimas\", Kategorija as \"Kategorija\", Prioritetine_Svarba as \"Prioritetine_Svarba\", Valandu_skaicius as \"Valandu_skaicius\" FROM Projektai WHERE ID = ?");         
          this.stmt_deleteProjektas = this.con.prepareStatement("DELETE FROM Projektai WHERE ID = ?");
          this.stmt_insertProjektas = this.con.prepareStatement("INSERT INTO Projektai (Pavadinimas, Kategorija, Prioritetine_Svarba, Valandu_skaicius) VALUES(?, ?, ?, ?)");
@@ -78,7 +78,7 @@ public class dataBaseClient
          this.stmt_insertVadovas = this.con.prepareStatement("INSERT INTO Vadovas (Asmens_kodas, Vardas, Pavarde, Gimimo_data) VALUES(?, ?, ?, ?)");
          this.stmt_insertVadovaujami_projektai = this.con.prepareStatement("INSERT INTO Vadovaujami_projektai VALUES(?, ?)");
          this.stmt_updateVadovaujami_projektai = this.con.prepareStatement("DELETE FROM Vadovaujami_projektai WHERE Vadovo_ID = ? AND Projekto_ID = ?");
-    		//this.stmt_selectAllProjektas = this.con.prepareStatement("SELECT * FROM Projektas");
+    	 //this.stmt_selectAllProjektas = this.con.prepareStatement("SELECT * FROM Projektas");
     	}
     	catch (SQLException sqle) 
     	{
@@ -222,7 +222,7 @@ public class dataBaseClient
     }
     public void sukeistiProjektus(int vadovo_ID1, int projekto_ID1, int vadovo_ID2, int projekto_ID2) throws SQLException 
     {
-    	  Statement stmt = this.con.createStatement();
+    	Statement stmt = this.con.createStatement();
         con.setAutoCommit(false);
         try
         {
